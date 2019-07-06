@@ -1,19 +1,23 @@
 #Insert data/rows/row then delete or update the row to show "completed" in
 #some way
 
+import sys
+sys.path.insert(0, '../../credentials')
+from mysqlCreds import *
 import mysql.connector
 
 myDb = mysql.connector
 dbCur = ' '
 
+print(host)
 def connectDB ():
 
   myDbConn = myDb.connect(
 
-    host="18.214.220.93",
-    user="webUser",
-    passwd="#edCft6",
-    database="webPage"
+    host=host,
+    user=user,
+    passwd=passwd,
+    database=database
 
   )
   print 'Connected'
