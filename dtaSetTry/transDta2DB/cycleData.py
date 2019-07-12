@@ -30,7 +30,15 @@ def connectDB ():
   print(dbRes)
 
 #Insert data
-  dbCur.execute("insert into users(userid, usrfrtnme, usrlstnme, hstParid) values (5, 'test', 'test', 0)")
+  dbCur.execute('delete from users')
+  for x in range(100):
+    for x in range(10):
+      dbCur.execute("insert into users(userid, usrfrtnme, usrlstnme, hstParid) values (%d, 'test', 'test', 1)" % (x))
+      print 'inserted'
+    for i in range(10):
+      dbCur.execute("delete from users where userid = %d" % (i))
+      print 'deleted'
+      myDbConn.commit()
   dbCur.close()
 
 #Remote data
